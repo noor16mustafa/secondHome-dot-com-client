@@ -21,7 +21,8 @@ const Navbar = () => {
 
                         </li>
                         <li><Link to='/blog'>Blog</Link></li>
-                        <li><Link to='/faq'>FAQ</Link></li>
+                        <li><Link to='/login'>LogIn</Link></li>
+                        <li><Link to='/register'>Sign Up</Link></li>
                         {/* <>
                                 {
                                     user?.uid ?
@@ -53,7 +54,8 @@ const Navbar = () => {
 
                     </li>
                     <li><Link to='/blog'>Blog</Link></li>
-                    <li><Link to='/faq'>FAQ</Link></li>
+                    <li><Link to='/login'>LogIn</Link></li>
+                    <li><Link to='/register'>Sign Up</Link></li>
                     {/* <>
                             {
                                 user?.uid ?
