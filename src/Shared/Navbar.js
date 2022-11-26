@@ -1,7 +1,18 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../contexts/AuthProvider';
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                navigate('/login')
+            })
+            .catch(error => console.error(error))
+    }
     return (
         <div className="navbar bg-success text-neutral">
             <div className="navbar-start">
@@ -16,29 +27,24 @@ const Navbar = () => {
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li><Link to="/home">Home</Link></li>
-                        <li tabIndex={0}>
-                            <Link to='/courses' className="justify-between"> Courses </Link>
-
-                        </li>
                         <li><Link to='/blog'>Blog</Link></li>
-                        <li><Link to='/login'>LogIn</Link></li>
-                        <li><Link to='/register'>Sign Up</Link></li>
-                        {/* <>
-                                {
-                                    user?.uid ?
-                                        <>
-                                            <li><Link >LogOut</Link></li>
-                                            <div className="tooltip tooltip-right mt-1" data-tip={user.displayName}>
-                                                <img className='w-10 rounded-full border border-solid' src={user.photoURL} alt="" />
-                                            </div>
-                                        </>
-                                        :
-                                        <>
-                                            <li><Link to='/login'>LogIn</Link></li>
-                                            <li><Link to='/register'>Sign Up</Link></li>
-                                        </>
-                                }
-                            </> */}
+
+
+                        <>
+                            {
+                                user?.uid ?
+                                    <>
+                                        <li><Link to='/dashboard'>Dashboard</Link></li>
+                                        <li><button onClick={handleLogOut}>LogOut</button></li>
+
+                                    </>
+                                    :
+                                    <>
+                                        <li><Link to='/login'>LogIn</Link></li>
+                                        <li><Link to='/register'>Sign Up</Link></li>
+                                    </>
+                            }
+                        </>
                     </ul>
                 </div>
 
@@ -49,29 +55,23 @@ const Navbar = () => {
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
                     <li><Link to='/home'>Home</Link></li>
-                    <li tabIndex={0}>
-                        <Link to='/courses'>  Courses</Link>
-
-                    </li>
                     <li><Link to='/blog'>Blog</Link></li>
-                    <li><Link to='/login'>LogIn</Link></li>
-                    <li><Link to='/register'>Sign Up</Link></li>
-                    {/* <>
-                            {
-                                user?.uid ?
-                                    <>
-                                        <li><Link >LogOut</Link></li>
-                                        <div className="tooltip tooltip-right mt-1" data-tip={user.displayName}>
-                                            <img className='w-10 border border-solid rounded-full' src={user.photoURL} alt="" />
-                                        </div>
-                                    </>
-                                    :
-                                    <>
-                                        <li><Link to='/login'>LogIn</Link></li>
-                                        <li><Link to='/register'>Sign Up</Link></li>
-                                    </>
-                            }
-                        </> */}
+
+                    <>
+                        {
+                            user?.uid ?
+                                <>
+                                    <li><Link to='/dashboard'>Dashboard</Link></li>
+                                    <li><button onClick={handleLogOut}>LogOut</button></li>
+
+                                </>
+                                :
+                                <>
+                                    <li><Link to='/login'>LogIn</Link></li>
+                                    <li><Link to='/register'>Sign Up</Link></li>
+                                </>
+                        }
+                    </>
 
 
                 </ul>
