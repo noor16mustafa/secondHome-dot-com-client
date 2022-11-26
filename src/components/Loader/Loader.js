@@ -2,8 +2,10 @@ import React from 'react';
 
 const Loader = () => {
     return (
-        <div className='text-center'>
-            <progress className="progress w-56"></progress>
+        <div className="flex justify-center items-center">
+            <div className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full" role="status">
+                <span className="visually-hidden">...</span>
+            </div>
         </div>
     );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Product = ({ product }) => {
-    const { condition, details, email, img, location, original_price, p_id, phone, resale_price, seller, title, year } = product;
+const Product = ({ product, setProduct }) => {
+    const { condition, details, email, img, location, original_price, phone, resale_price, seller, title, year } = product;
     return (
         <div className="card lg:card-side bg-base-100 shadow-xl w-full lg:w-1/2 my-14">
             <figure className='w-full lg:w-1/2'><img className='h-full w-full' src={img} alt="" /></figure>
@@ -19,7 +19,9 @@ const Product = ({ product }) => {
                 <h2 className=" text-xl "><strong className='text-success'>Phone:</strong> {phone}</h2>
                 <p>Posting Time: </p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Listen</button>
+
+                    <label onClick={() => setProduct(product)}
+                        htmlFor="booking-modal" className="btn btn-success">Book Now</label>
                 </div>
             </div>
         </div>
