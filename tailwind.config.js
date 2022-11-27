@@ -17,6 +17,7 @@ module.exports = {
           warning: "#FBBD23",
 
           error: "#F87272",
+          emerald: "#d1fae5",
         },
       }
     ]

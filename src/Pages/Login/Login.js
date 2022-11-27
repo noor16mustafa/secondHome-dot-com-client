@@ -35,7 +35,7 @@ const Login = () => {
     }
     //-----save google user------
     const saveUser = (displayName, email) => {
-        const user = { displayName, email, role: "Buyer" };
+        const user = { name: displayName, email, role: "Buyer" };
         fetch('http://localhost:5000/users', {
             method: 'POST',
             headers: {
