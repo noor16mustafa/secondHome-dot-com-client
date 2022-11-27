@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Product = ({ product, setProduct }) => {
-    const { condition, details, email, img, location, original_price, phone, resale_price, seller, title, year } = product;
+    const { condition, details, email, img, location, original_price, phone, resale_price, time, seller, title, year } = product;
     return (
         <div className="card lg:card-side bg-base-100 shadow-xl w-full lg:w-1/2 my-14">
             <figure className='w-full lg:w-1/2'><img className='h-full w-full' src={img} alt="" /></figure>
@@ -17,7 +17,7 @@ const Product = ({ product, setProduct }) => {
                 <h2 className=" text-xl "><strong className='text-success'>Seller:</strong> {seller}</h2>
                 <h2 className=" text-xl "><strong className='text-success'>Email:</strong> {email}</h2>
                 <h2 className=" text-xl "><strong className='text-success'>Phone:</strong> {phone}</h2>
-                <p>Posting Time: </p>
+                <p>Posting Time:{time} </p>
                 <div className="card-actions justify-end">
 
                     <label onClick={() => setProduct(product)}

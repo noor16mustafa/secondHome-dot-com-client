@@ -31,6 +31,7 @@ const DashboardLayout = () => {
                         }
 
                         <li className='bg-success my-2'><Link to="/dashboard/addProduct"><span className='text-2xl font-bold'>Add Product</span></Link></li>
+                        <li className='bg-success my-2'><Link to="/dashboard/myProduct"><span className='text-2xl font-bold'>My Product</span></Link></li>
 
 
 
