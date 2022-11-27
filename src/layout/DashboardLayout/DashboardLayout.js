@@ -24,11 +24,13 @@ const DashboardLayout = () => {
                         {
                             isAdmin &&
                             <>
-                                <li className='bg-success my-2'><Link to="/dashboard/allsellers"><span className='text-2xl font-bold'>All Sellers</span></Link></li>
-                                <li className='bg-success my-2'><Link to="/dashboard/allbuyers"><span className='text-2xl font-bold'>All Buyers</span></Link></li>
-                                <li className='bg-success my-2'><Link to="/dashboard/reporteditem"><span className='text-2xl font-bold'>Reported Item</span></Link></li>
+                                <li className='bg-success my-2'><Link to="/dashboard/allSellers"><span className='text-2xl font-bold'>All Sellers</span></Link></li>
+                                <li className='bg-success my-2'><Link to="/dashboard/allBuyers"><span className='text-2xl font-bold'>All Buyers</span></Link></li>
+                                <li className='bg-success my-2'><Link to="/dashboard/reportedItem"><span className='text-2xl font-bold'>Reported Item</span></Link></li>
                             </>
                         }
+
+                        <li className='bg-success my-2'><Link to="/dashboard/addProduct"><span className='text-2xl font-bold'>Add Product</span></Link></li>
 
 
 
