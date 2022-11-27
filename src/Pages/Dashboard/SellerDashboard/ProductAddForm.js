@@ -45,7 +45,7 @@ const ProductAddForm = ({ categoryId, categoryName }) => {
                         original_price, resale_price,
                         year, location, seller, email,
                         phone, condition, details,
-                        img: image
+                        img: imagedata.data.url
 
                     }
                     //save product information to database
