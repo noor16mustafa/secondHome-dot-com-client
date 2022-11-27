@@ -2,11 +2,13 @@ import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import useAdmin from '../../hooks/useAdmin';
+import useSeller from '../../hooks/useSeller';
 import Navbar from '../../Shared/Navbar';
 
 const DashboardLayout = () => {
     const { user } = useContext(AuthContext);
-    const [isAdmin] = useAdmin(user?.email)
+    const [isAdmin] = useAdmin(user?.email);
+    const [isSeller] = useSeller(user?.email);
     return (
         <div>
             <Navbar></Navbar>
@@ -19,7 +21,7 @@ const DashboardLayout = () => {
                 <div className="drawer-side bg-emerald-100">
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 text-base-content">
-                        <li className='bg-success my-2'><Link to="/dashboard"><span className='text-2xl font-bold'>My Orders</span></Link></li>
+                        {/* <li className='bg-success my-2'><Link to="/dashboard"><span className='text-2xl font-bold'>My Orders</span></Link></li> */}
 
                         {
                             isAdmin &&
@@ -29,9 +31,15 @@ const DashboardLayout = () => {
                                 <li className='bg-success my-2'><Link to="/dashboard/reportedItem"><span className='text-2xl font-bold'>Reported Item</span></Link></li>
                             </>
                         }
+                        {
+                            isSeller &&
+                            <>
+                                <li className='bg-success my-2'><Link to="/dashboard/addProduct"><span className='text-2xl font-bold'>Add Product</span></Link></li>
+                                <li className='bg-success my-2'><Link to="/dashboard/myProduct"><span className='text-2xl font-bold'>My Product</span></Link></li>
+                            </>
+                        }
 
-                        <li className='bg-success my-2'><Link to="/dashboard/addProduct"><span className='text-2xl font-bold'>Add Product</span></Link></li>
-                        <li className='bg-success my-2'><Link to="/dashboard/myProduct"><span className='text-2xl font-bold'>My Product</span></Link></li>
+
 
 
 

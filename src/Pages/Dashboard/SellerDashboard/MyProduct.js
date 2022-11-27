@@ -22,7 +22,7 @@ const MyProduct = () => {
             return data;
         }
     });
-
+    //handle delete product
     const handleDeleteProduct = product => {
         fetch(`http://localhost:5000/product/${product._id}`, {
             method: 'DELETE',
@@ -40,6 +40,36 @@ const MyProduct = () => {
     //handle advertise button
     const handleAdvertise = advertiseProduct => {
         console.log(advertiseProduct);
+        const adPro = {
+            uid: advertiseProduct._id,
+            img: advertiseProduct.img,
+            title: advertiseProduct.title,
+            original_price: advertiseProduct.original_price,
+            resale_price: advertiseProduct.resale_price,
+            seller: advertiseProduct.seller,
+            email: advertiseProduct.email,
+            category: advertiseProduct.category,
+            p_id: advertiseProduct.p_id
+        }
+        fetch('http://localhost:5000/advertise', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(adPro)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.acknowledged) {
+
+                    toast.success('add to advertise');
+
+                }
+                else {
+                    toast.error(data.message);
+                }
+            })
     }
 
     if (isLoading) {
