@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider';
+import image from '../assets/logo.png';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -17,10 +18,10 @@ const Navbar = () => {
         <div className="navbar bg-success text-neutral">
             <div className="navbar-start">
 
-                {/* <div className='ml-4' >
-                        <img className="w-10 rounded" src={image} alt='' />
+                <div className='ml-4' >
+                    <img className="w-10 rounded" src={image} alt='' />
 
-                    </div> */}
+                </div>
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
