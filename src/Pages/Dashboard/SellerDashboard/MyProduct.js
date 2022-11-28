@@ -17,14 +17,14 @@ const MyProduct = () => {
     const { data: myProducts = [], isLoading, refetch } = useQuery({
         queryKey: ['myProducts'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/seller/${user?.email}`);
+            const res = await fetch(`https://resale-market-server-seven.vercel.app/seller/${user?.email}`);
             const data = await res.json();
             return data;
         }
     });
     //handle delete product
     const handleDeleteProduct = product => {
-        fetch(`http://localhost:5000/product/${product._id}`, {
+        fetch(`https://resale-market-server-seven.vercel.app/product/${product._id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())
@@ -51,7 +51,7 @@ const MyProduct = () => {
             category: advertiseProduct.category,
             p_id: advertiseProduct.p_id
         }
-        fetch('http://localhost:5000/advertise', {
+        fetch('https://resale-market-server-seven.vercel.app/advertise', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

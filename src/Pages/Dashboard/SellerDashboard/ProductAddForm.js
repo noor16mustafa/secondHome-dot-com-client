@@ -49,7 +49,7 @@ const ProductAddForm = ({ categoryId, categoryName }) => {
 
                     }
                     //save product information to database
-                    fetch('http://localhost:5000/addproduct', {
+                    fetch('https://resale-market-server-seven.vercel.app/addproduct', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

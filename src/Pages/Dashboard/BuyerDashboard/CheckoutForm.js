@@ -17,7 +17,7 @@ const CheckoutForm = ({ booking }) => {
 
     useEffect(() => {
         // Create PaymentIntent as soon as the page loads
-        fetch("http://localhost:5000/create-payment-intent", {
+        fetch("https://resale-market-server-seven.vercel.app/create-payment-intent", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ price }),
@@ -86,7 +86,7 @@ const CheckoutForm = ({ booking }) => {
                 title: item,
                 uid
             }
-            fetch('http://localhost:5000/payments', {
+            fetch('https://resale-market-server-seven.vercel.app/payments', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
@@ -100,7 +100,7 @@ const CheckoutForm = ({ booking }) => {
                     if (data.insertedId) {
                         toast.success('Congrats! your payment completed');
                         //delete operation
-                        fetch(`http://localhost:5000/paid/${uid}`, {
+                        fetch(`https://resale-market-server-seven.vercel.app/paid/${uid}`, {
                             method: 'DELETE',
                         })
                             .then(res => res.json())

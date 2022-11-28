@@ -8,7 +8,7 @@ const AddProducts = () => {
     const [categoryName, setCategoryName] = useState(null);
 
     useEffect(() => {
-        fetch('http://localhost:5000/categories')
+        fetch('https://resale-market-server-seven.vercel.app/categories')
             .then(res => res.json())
             .then(data => {
                 setCategories(data);
