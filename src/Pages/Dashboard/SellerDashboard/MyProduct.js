@@ -114,7 +114,8 @@ const MyProduct = () => {
                                 <td><button className="btn btn-outline btn-info btn-sm"
                                     onClick={() => handleAdvertise(product)}>Unsold</button></td>
 
-                                <td> <label onClick={() => setDeletingProduct(product)} htmlFor="confirmation-modal" className="btn btn-sm btn-error">Delete</label></td>
+                                <td>
+                                    <label onClick={() => setDeletingProduct(product)} htmlFor="confirmation-modal" className="btn btn-sm btn-error">Delete </label></td>
 
                             </tr>)
                         }

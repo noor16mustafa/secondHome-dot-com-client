@@ -21,7 +21,13 @@ const DashboardLayout = () => {
                 <div className="drawer-side bg-emerald-100">
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 text-base-content">
-                        {/* <li className='bg-success my-2'><Link to="/dashboard"><span className='text-2xl font-bold'>My Orders</span></Link></li> */}
+                        {
+                            !isAdmin && !isSeller &&
+                            <>
+                                <li className='bg-success my-2'><Link to="/dashboard/myOrder"><span className='text-2xl font-bold'>My Orders</span></Link></li>
+                            </>
+                        }
+
 
                         {
                             isAdmin &&
